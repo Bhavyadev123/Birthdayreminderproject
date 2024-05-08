@@ -27,6 +27,8 @@ function addBirthday() {
       }
 }
 
+
+
 function createBirthdayItem(name, date, imageUrl) {
     const birthdayItem = document.createElement('li');
     birthdayItem.className = 'birthdayItem';
@@ -102,5 +104,16 @@ function saveBirthdays() {
     });
     localStorage.setItem('birthdays', JSON.stringify(birthdays));
 }
+function validateAndAdd() {
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const image = document.getElementById('image').value;
 
+    if (name.trim() === '' || date.trim() === '' || image.trim() === '') {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    addBirthday();
+  }
 
